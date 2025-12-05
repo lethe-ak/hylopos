@@ -1,0 +1,41 @@
+cabal-version: 3.0
+name:          hylopos
+version:       0.1.0.0
+synopsis:      A todo manager with dependency resolution (DAG)
+description:   haskell-based todo list that supports dependency resolution.
+license:       MIT
+author:        raika
+maintainer:    raika_xino@pm.me
+category:      Productivity
+
+extra-doc-files: CHANGELOG.md
+license-file:    LICENSE
+build-type:      Simple
+
+executable hylopos
+	main-is: main.hs
+
+	other-modules:
+		  Lib.Types
+		, Lib.DB
+		, Lib.Sort
+		, Lib.Actions
+		, Lib.CLI
+		, Lib.REPL
+
+	default-extensions:
+		  OverloadedStrings
+		, DuplicateRecordFields
+		, OverloadedRecordDot
+		, RecordWildCards
+
+	build-depends:
+		  base ^>=4.19.2.0
+		, sqlite-simple
+		, time
+		, text
+		, unix
+
+	ghc-options:      -Wall -fno-warn-tabs
+	hs-source-dirs:   ., app
+	default-language: GHC2021
